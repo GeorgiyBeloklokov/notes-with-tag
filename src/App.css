@@ -1,67 +1,38 @@
 .App {
   text-align: center;
 }
-.App .item-todo {
-  padding: 14px;
-  width: 250px;
-  text-align: left;
-  margin: 15px auto 0;
-  background: linear-gradient(90deg, #5d0cff 0%, #9b00fa 100%);
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.App .item-todo .item-text {
-  display: inline-block;
-  cursor: pointer;
-}
-.App input {
-  padding: 14px 32px 14px 16px;
-  border-radius: 4px 0 0 4px;
-  border: 2px solid #5d0cff;
-  outline: none;
-  background: transparent;
-}
-.App button {
-  padding: 16px 7px;
-  border: none;
-  border-radius: 0 4px 4px 0;
-  cursor: pointer;
-  outline: none;
-  background: linear-gradient(90deg, #5d0cff 0%, #9b00fa 100%);
-  color: #fff;
-  text-transform: capitalize;
-}
-.App button:hover {
-  color: #011086;
-}
-.App .item-todo .item-delete {
-  display: inline-block;
-  cursor: pointer;
-  float: right;
-  font-size: 15px;
-  position: relative;
-  left: -4px;
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-.item-delete:hover {
-  color: red;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-.edit {
-  margin-right: 14px;
-}
-.edit:hover {
-  color: #011086;
-}
-
-.strike {
-  text-decoration: line-through;
-}
-
-.edit-task {
-  margin-top: 16px;
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-/*# sourceMappingURL=App.css.map */
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
