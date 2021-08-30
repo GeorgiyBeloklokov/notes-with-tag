@@ -1,0 +1,218 @@
+$milk-white: #ffffff;
+$background: #85a3c6;
+$grey: #ccc;
+$twenty: 20px;
+$shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+$marginLi: 40px 10px 0px 10px;
+
+%input-props {
+  padding: 10px;
+  margin: $twenty;
+  border-radius: 4px;
+}
+
+%form-props {
+  margin: $twenty;
+  background-color: #93abcb;
+  box-shadow: $shadow;
+}
+
+%button-props {
+  background-color: #7386a0;
+  border: none;
+  color: #ffffff;
+  padding: 12px 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 2px 2px;
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
+  cursor: pointer;
+
+}
+
+%li-props {
+  border: 1px solid silver;
+  border-radius: 5px;
+  background-color: #93abcb;
+}
+
+%list-props {
+  color: black;
+  font-size: 14px;
+  font-family: Georgia, Times, serif;
+  margin-right: 35px;
+  flex-wrap: wrap;
+}
+
+
+body {
+  background-color: $background;
+  font-family: sans-serif, serif;
+}
+
+.container {
+  justify-content: center;
+  margin: 0 auto;
+  background-color: white;
+  max-width: 1000px;
+  min-height: 900px;
+}
+
+.App {
+  padding: 30px;
+  text-align: center;
+}
+
+.Post {
+  .someText {
+    @extend %form-props;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  textarea {
+    @extend %input-props;
+    flex-basis: 80%;
+    overflow: scroll;
+  }
+
+  .save {
+
+    margin-top: $twenty;
+    height: 50px;
+    flex-basis: 10%;
+    @extend %button-props;
+  }
+
+  .save:hover {
+    background-color: #005e7b;
+    color: #ffffff;
+  }
+
+  .save:active {
+    background-color: #004657;
+    box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+    transform: translateY(4px);
+  }
+
+  .searchTag {
+    @extend %form-props;
+    flex-basis: 70%;
+    display: inline-block;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  input {
+    @extend %input-props;
+  }
+
+  .tagButton {
+    @extend %button-props;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 30px;
+    margin: 1rem $twenty 0 0;
+  }
+
+  .tagButton:hover {
+    background-color: #005e7b;
+    color: #ffffff;
+  }
+
+  .tagButton:active {
+    background-color: #004657;
+    box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+    transform: translateY(4px);
+  }
+
+  .listBox {
+    @extend %list-props;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-position: inside;
+    list-style-type: upper-roman;
+
+    .notes {
+      @extend %li-props;
+      margin: $twenty;
+      padding: $twenty;
+
+      .someNote {
+        flex-grow: 1;
+      }
+
+      .delNote {
+        @extend %button-props;
+        margin: $marginLi;
+        border-radius: 10px;
+      }
+
+      .delNote:hover {
+        background-color: #005e7b;
+        color: #ffffff;
+      }
+
+      .delNote:active {
+        background-color: #004657;
+        box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+        -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+        -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+        transform: translateY(4px);
+      }
+
+      .changeNote {
+        @extend %button-props;
+        margin: $marginLi;
+        border-radius: 10px;
+      }
+
+      .changeNote:hover {
+        background-color: #005e7b;
+        color: #ffffff;
+      }
+
+      .changeNote:active {
+        background-color: #004657;
+        box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+        -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+        -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+        transform: translateY(4px);
+      }
+    }
+
+    .containerNote {
+      @extend %list-props;
+      display: inline-flex;
+      flex-direction: row;
+      list-style-type: none;
+      flex-wrap: wrap;
+
+      .tags {
+        @extend %li-props;
+        padding: 10px;
+        margin: 3px;
+      }
+
+      .delTag {
+        margin-top: 20px;
+        border-radius: 10px;
+        background-color: #1E90FF;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 700px) {
+    .container {
+      background-color: rgb(163, 221, 240);
+    }
+  }
+}
