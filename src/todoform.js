@@ -8,12 +8,15 @@ function ToDoForm({addTask}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         addTask(userInput)
+            setUserInput("")
     }
     const handleChange = (e) => {
         setUserInput(e.currentTarget.value)
     }
-    const handleKeyPress = () => {
-
+    const handleKeyPress = (e) => {
+if(e.key === "Enter") {
+    handleSubmit(e)
+}
     }
 
     return (

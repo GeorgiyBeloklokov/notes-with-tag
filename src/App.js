@@ -6,6 +6,7 @@ import ToDo from "./todo";
 
 function App() {
     const [todos, setTodos] = useState([])
+
     const addTask = (userInput) => {
      if(userInput){
     const newItem = {
@@ -16,10 +17,13 @@ function App() {
     setTodos([...todos,newItem])
 }
     }
-    const removeTask = () => {
-
+    const removeTask = (id) => {
+setTodos([...todos.filter((todo) =>todo.id !== id)])
     }
-    const handleToggle = () => {
+    const handleToggle = (id) => { setTodos([...todos.map((todo) =>
+        todo.id ===id ? {...todo, complete: !todo.complete} : {...todo}
+
+    )])
 
     }
     return (
