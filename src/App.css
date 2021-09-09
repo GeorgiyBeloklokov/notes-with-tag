@@ -24,6 +24,7 @@
   cursor: pointer;
 }
 
+
 .App input {
   padding: 14px 32px 14px 16px;
   border-radius: 4px 0 0 4px;
@@ -51,10 +52,21 @@
   display: inline-block;
   cursor: pointer;
   float: right;
-  font-size: 22px;
+  font-size: 15px;
   position: relative;
   left: -4px;
-  bottom: 5px;
+  /*bottom: 5px;*/
+
+}
+.item-delete:hover {
+  color:red;
+}
+
+.edit {
+  margin-right: 14px;
+}
+.edit:hover {
+  color: #000dff;
 }
 
 .strike {
