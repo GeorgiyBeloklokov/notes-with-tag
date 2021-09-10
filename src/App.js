@@ -21,12 +21,6 @@ function App() {
         setTodos([...todos.filter((todo) => todo.id !== id)])
     }
 
-    const removeTaskOld = (todo,id,userInput) => {
-        let val = todos
-        val.splice(0,9,userInput)
-        setTodos([...todos, todos] )
-    }
-
 
     const handleToggle = (id) => {
         setTodos([...todos.map((todo) =>
@@ -34,22 +28,13 @@ function App() {
         )])
     }
 
-    const editTask = (userInput) => {
+    const editTask = (userInput, id) => {
         if (userInput) {
-            const newItem = {
-                id: Math.random().toString(36).substr(2, 9),
-                task: userInput,
-                complete: false
-            }
-            setTodos([ newItem])
+            setTodos([...todos.map((todo) =>
+                todo.id === id ? {...todo, task: userInput} : {...todo}
+            )])
         }
-
     }
-
-
-
-
-
 
     return (
         <div className="App">
@@ -65,7 +50,6 @@ function App() {
                         toggleTask={handleToggle}
                         removeTask={removeTask}
                         editTask={editTask}
-                        removeTaskOld={removeTaskOld}
 
                     />
                 )
