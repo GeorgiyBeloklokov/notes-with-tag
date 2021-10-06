@@ -109,11 +109,15 @@ class Form extends Component {
 
         }
     }
+
     delPost = (key) => {
-        let arr = this.state.currentData;
-        arr.splice(key, 1);
-        this.setState({currentData: arr});
-    };
+        const filterTask = this.state.dats.filter(item =>
+        item.key!==key);
+        this.setState({
+            dats: filterTask
+            }
+        )
+    }
 
     delHashtag = (index) => {
         let tag = this.state.note;
@@ -142,13 +146,6 @@ class Form extends Component {
                 })
         }
     }
-
-        /*this.setState(
-            [...this.state.dats.map(item => item.key === key ? {...item, editMode:true } :{...item})])
-        console.log(this.state.dats);*/
-
-
-
 
     deactivateEditMode = (key,text) => {
         if (this.state.value) {
