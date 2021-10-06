@@ -1,0 +1,177 @@
+.Post input, .Post textarea {
+  padding: 10px;
+  margin: 20px;
+  border-radius: 4px;
+}
+
+.Post .searchTag, .Post .someText {
+  margin: 20px;
+  background-color: #93abcb;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.Post .listBox .notes .changeNote, .Post .listBox .notes .delNote, .Post .tagButton, .Post .save {
+  background-color: #7386a0;
+  border: none;
+  color: #ffffff;
+  padding: 12px 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 2px 2px;
+  -webkit-transition-duration: 0.2s;
+  /* Safari */
+  transition-duration: 0.2s;
+  cursor: pointer;
+}
+
+.Post .listBox .containerNote .tags, .Post .listBox .notes {
+  border: 1px solid silver;
+  border-radius: 5px;
+  background-color: #93abcb;
+}
+
+.Post .listBox .containerNote, .Post .listBox {
+  color: black;
+  font-size: 14px;
+  font-family: Georgia, Times, serif;
+  margin-right: 35px;
+  flex-wrap: wrap;
+}
+
+body {
+  background-color: #85a3c6;
+  font-family: sans-serif, serif;
+}
+
+.container {
+  justify-content: center;
+  margin: 0 auto;
+  background-color: white;
+  max-width: 1000px;
+  min-height: 900px;
+}
+
+.App {
+  padding: 30px;
+  text-align: center;
+}
+
+.Post .someText {
+  display: flex;
+  flex-wrap: wrap;
+}
+.Post textarea {
+  flex-basis: 80%;
+}
+.Post .save {
+  margin-top: 20px;
+  height: 50px;
+  flex-basis: 10%;
+}
+.Post .save:hover {
+  background-color: #005e7b;
+  color: #ffffff;
+}
+.Post .save:active {
+  background-color: #004657;
+  box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  transform: translateY(4px);
+}
+.Post .searchTag {
+  flex-basis: 70%;
+  display: inline-block;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.Post .tagButton {
+  flex-direction: column;
+  justify-content: center;
+  max-height: 30px;
+  margin: 1rem 20px 0 0;
+}
+.Post .tagButton:hover {
+  background-color: #005e7b;
+  color: #ffffff;
+}
+.Post .tagButton:active {
+  background-color: #004657;
+  box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  transform: translateY(4px);
+}
+.Post .listBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style-position: inside;
+  list-style-type: upper-roman;
+}
+.Post .listBox .notes {
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.Post .listBox .notes .someNote {
+  width: 300px;
+  margin-right: auto;
+  word-wrap: break-word;
+}
+.Post .listBox .notes .delNote {
+  margin: 5px 10px 0 10px;
+  border-radius: 10px;
+}
+.Post .listBox .notes .delNote:hover {
+  background-color: #005e7b;
+  color: #ffffff;
+}
+.Post .listBox .notes .delNote:active {
+  background-color: #004657;
+  box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  transform: translateY(4px);
+}
+.Post .listBox .notes .changeNote {
+  margin: 5px 10px 0 10px;
+  border-radius: 10px;
+}
+.Post .listBox .notes .changeNote:hover {
+  background-color: #005e7b;
+  color: #ffffff;
+}
+.Post .listBox .notes .changeNote:active {
+  background-color: #004657;
+  box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  transform: translateY(4px);
+}
+.Post .listBox .containerNote {
+  display: inline-flex;
+  flex-direction: row;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+.Post .listBox .containerNote .tags {
+  padding: 10px;
+  margin: 3px;
+}
+.Post .listBox .containerNote .delTag {
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: #1E90FF;
+}
+@media only screen and (max-width: 700px) {
+  .Post .container {
+    background-color: #a3ddf0;
+  }
+}
+
+/*# sourceMappingURL=App.css.map */
