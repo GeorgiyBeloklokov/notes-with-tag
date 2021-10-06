@@ -133,10 +133,10 @@ class Form extends Component {
     activateEditMode = (text,key) => {
         const dats = this.state.dats;
         if (text) {
-             dats.map(item => {
+             dats.forEach(item => {
                 if (item.key === key) {
                     item.text = text;
-                    item.editMode = true;
+                    item.editMode = !item.editMode;
                 }
             })
 
@@ -151,7 +151,7 @@ class Form extends Component {
         if (this.state.value) {
             const dats = this.state.dats;
             if (text) {
-                dats.map(item => {
+                dats.forEach(item => {
                     if (item.key === key) {
                         item.editMode = false;
                         item.text = this.state.value;
@@ -187,6 +187,7 @@ class Form extends Component {
                     searchTag={this.searchTag}
                     noteChange={this.noteChange}
                     handleChangeTask={this.handleChangeTask}
+                    switchEditMode={this.switchEditMode}
 
                 />
             </div>

@@ -33,6 +33,7 @@ class Post extends Component {
                           noteChange={this.props.noteChange}
                           dats={this.props.dats}
                           handleChangeTask={this.props.handleChangeTask}
+                          switchEditMode={this.props.switchEditMode}
                           />
 
                     {/*{!this.props.editMode &&
