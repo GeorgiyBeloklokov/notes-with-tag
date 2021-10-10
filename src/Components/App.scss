@@ -135,7 +135,8 @@ body {
   .listBox {
     @extend %list-props;
     display: flex;
-    flex-direction: column;
+    /*flex-direction: column;*/
+    justify-content: center;
     align-items: center;
     list-style-position: inside;
     list-style-type: upper-roman;
