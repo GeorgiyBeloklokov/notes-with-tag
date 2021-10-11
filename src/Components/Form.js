@@ -17,7 +17,7 @@ class Form extends Component {
             currentTag: {
                 text: '',
                 key: '',
-                servNote:'',
+                servTag:''
             },
             note: [],
             json: null,
@@ -66,18 +66,20 @@ class Form extends Component {
                 currentTag: {
                     text: e.target.value,
                     key: Date.now(),
-            },
+            }
         });
         let val = this.state.value.split(/(#[a-z\d-]+)/ig);
+        const array = [];
+        this.setState({
+            note: array
+        });
         for (let i = 0; i < val.length; i++) {
             if (val[i].charAt(0) === "#") {
-                let array = [];
                 array.push(val[i]);
-                this.setState({
 
-                        note:array
-                });
             }
+
+
         }
     }
 
@@ -95,7 +97,7 @@ class Form extends Component {
             this.setState({
                 json: JSON.stringify(myJson),
                 dats: newDats,
-                note: newTags,
+                /*note: newTags,*/
                 value: '',
             })
             console.log(myJson);

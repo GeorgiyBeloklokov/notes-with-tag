@@ -35,14 +35,11 @@ class Post extends Component {
                           dats={this.props.dats}
                           handleChangeTask={this.props.handleChangeTask}
                     />
-
                     <div className='containerNote'>
-                        {this.props.note.map((item) => {
-                            return (
-                                <HashTag delHashtag={this.props.delHashtag} item={item}/>
-                            )
-                        })}
-
+                                <HashTag
+                                    dats={this.props.dats}
+                                    note={this.props.note}
+                                />
                     </div>
                 </div>
             </div>
