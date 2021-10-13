@@ -18,27 +18,20 @@ class Post extends Component {
                     <button className="tagButton" onClick={this.props.searchTag}>Искать</button>
                 </form>
                 <div className='listBox'>
-                    <Task currentData={this.props.currentData}
-                          state={this.props.state}
-                          note={this.props.note}
-                          tag={this.props.tag}
+                    <Task
                           value={this.props.value}
                           handleChange={this.props.handleChange}
-                          handleChangeEditMode={this.props.handleChangeEditMode}
                           delPost={this.props.delPost}
                           activateEditMode={this.props.activateEditMode}
                           deactivateEditMode={this.props.deactivateEditMode}
-                          handleSubmit={this.props.handleSubmit}
-                          handleActive={this.props.handleActive}
-                          searchTag={this.props.searchTag}
-                          noteChange={this.props.noteChange}
                           dats={this.props.dats}
-                          handleChangeTask={this.props.handleChangeTask}
                     />
                     <div className='containerNote'>
                                 <HashTag
+                                    isActive={this.props.isActive}
                                     dats={this.props.dats}
                                     note={this.props.note}
+                                    delHashtag={this.props.delHashtag}
                                 />
                     </div>
                 </div>

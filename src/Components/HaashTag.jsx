@@ -2,11 +2,16 @@ import React  from "react";
 
 const HashTag = (props) => {
     const note = props.note;
+
     const listTag = note.map(item => {
+        let className = 'tags';
+        if (props.isActive) {
+            className += 'tags active';
+        }
             return (
-                <div key={item.key}>
+                <div key={item.index}>
                     <div className='tags'>
-                        <div className='someTag'>{item}</div>
+                        <div className={className}>{item}</div>
                         <button onClick={() => props.delHashtag(item.index)} className='delTag'>Удалить тэг
                         </button>
                     </div>
@@ -19,3 +24,6 @@ const HashTag = (props) => {
     )
 }
 export default HashTag;
+
+/*
+<div className='someTag'>{item}</div>*/

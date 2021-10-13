@@ -21,6 +21,7 @@ class Form extends Component {
             },
             note: [],
             json: null,
+            isActive: false
         };
     }
 
@@ -56,6 +57,14 @@ class Form extends Component {
     }
 
     handleChange = (e) => {
+        let val = this.state.value.split(/(#[a-z\d-]+)/ig);
+        const array = [];
+        for (let i = 0; i < val.length; i++) {
+            if (val[i].charAt(0) === "#") {
+                array.push(val[i]);
+            }
+        }
+
         this.setState({
             value: e.target.value,
             currentData: {
@@ -66,21 +75,9 @@ class Form extends Component {
                 currentTag: {
                     text: e.target.value,
                     key: Date.now(),
-            }
-        });
-        let val = this.state.value.split(/(#[a-z\d-]+)/ig);
-        const array = [];
-        this.setState({
+            },
             note: array
-        });
-        for (let i = 0; i < val.length; i++) {
-            if (val[i].charAt(0) === "#") {
-                array.push(val[i]);
-
-            }
-
-
-        }
+        })
     }
 
     handleSubmit = (e) => {
@@ -117,11 +114,19 @@ class Form extends Component {
 
     activateEditMode = (text, key) => {
         const dats = this.state.dats;
+
         if (text) {
             dats.forEach(item => {
                 if (item.key === key) {
                     item.text = text;
                     item.editMode = !item.editMode;
+                }
+                for (let i = 0; i < text.length; i++) {
+                    if (text[i].charAt(0) === "#") {
+                    this.setState({
+                        isActive: true
+                    })
+                    }
                 }
             })
             this.setState({
@@ -144,6 +149,7 @@ class Form extends Component {
                 this.setState({
                     dats: dats,
                     value: '',
+                    isActive: false
                 })
             }
         }
@@ -154,23 +160,19 @@ class Form extends Component {
         return (
             <div>
                 <Post
-                    state={this.state}
+                    isActive={this.state.isActive}
                     value={this.state.value}
-                    currentData={this.state.currentData}
                     note={this.state.note}
                     tag={this.state.tag}
                     dats={this.state.dats}
                     handleChange={this.handleChange}
-                    handleChangeEditMode={this.handleChangeEditMode}
                     delHashtag={this.delHashtag}
                     delPost={this.delPost}
                     activateEditMode={this.activateEditMode}
                     deactivateEditMode={this.deactivateEditMode}
                     handleSubmit={this.handleSubmit}
-                    handleActive={this.handleActive}
                     searchTag={this.searchTag}
                     noteChange={this.noteChange}
-                    handleChangeTask={this.handleChangeTask}
                 />
             </div>
         );
