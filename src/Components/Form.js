@@ -17,7 +17,7 @@ class Form extends Component {
             currentTag: {
                 text: '',
                 key: '',
-                servTag:''
+                servTag: ''
             },
             note: [],
             json: null,
@@ -28,9 +28,10 @@ class Form extends Component {
 
     noteChange = (e) => {
         this.setState({
-            tag: e.target.value,
+                tag: e.target.value,
 
-        });
+            }
+        );
     }
 
     searchTag = (e) => {
@@ -40,9 +41,10 @@ class Form extends Component {
         dats.unshift(dats[indexOfStevie]);
         dats.splice(indexOfStevie + 1, 1);
         this.setState({
-            dats: dats,
-            tag: '',
-        })
+                dats: dats,
+                tag: '',
+            }
+        )
     }
 
     delHashtag = (index) => {
@@ -51,52 +53,54 @@ class Form extends Component {
         let del = tag.splice(index, 1);
         let clearTag = val.substring(0, val.length - 1).replace(del, '');
         this.setState({
-            note: tag,
-            value: clearTag,
-        })
+                note: tag,
+                value: clearTag,
+            }
+        )
     }
 
     handleChange = (e) => {
         let val = this.state.value.split(/(#[a-z\d-]+)/ig);
-        const array = [];
+        let array = [];
         for (let i = 0; i < val.length; i++) {
             if (val[i].charAt(0) === "#") {
+
                 array.push(val[i]);
             }
         }
 
         this.setState({
-            value: e.target.value,
-            currentData: {
-                text: e.target.value,
-                key: Date.now(),
-                editMode: false,
-            },
+                value: e.target.value,
+                currentData: {
+                    text: e.target.value,
+                    key: Date.now(),
+                    editMode: false,
+                },
                 currentTag: {
                     text: e.target.value,
                     key: Date.now(),
-            },
-            note: array
-        })
+                },
+                note:  array
+            }
+        )
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        if (this.state.value !== '' ) {
+        if (this.state.value !== '') {
             let myJson = {
                 dats: this.state.dats,
                 note: this.state.note
             };
-            const newData = this.state.currentData;
-            const newDats = [...this.state.dats,newData];
-            const newTag = this.state.currentTag;
-            const newTags = [...this.state.note, newTag];
+            const newDats = [...this.state.dats, this.state.currentData];
+            const newTags = [...this.state.note, this.state.currentTag];
             this.setState({
-                json: JSON.stringify(myJson),
-                dats: newDats,
-                /*note: newTags,*/
-                value: '',
-            })
+                    json: JSON.stringify(myJson),
+                    dats: newDats,
+                    /*note: newTags,*/
+                    value: '',
+                }
+            )
             console.log(myJson);
         }
     }
@@ -111,29 +115,29 @@ class Form extends Component {
     }
 
 
-
     activateEditMode = (text, key) => {
         const dats = this.state.dats;
-
         if (text) {
             dats.forEach(item => {
-                if (item.key === key) {
-                    item.text = text;
-                    item.editMode = !item.editMode;
-                }
-                for (let i = 0; i < text.length; i++) {
-                    if (text[i].charAt(0) === "#") {
-                    this.setState({
-                        isActive: true
-                    })
+                    if (item.key === key) {
+                        item.text = text;
+                        item.editMode = !item.editMode;
                     }
                 }
-            })
-            this.setState({
+            )
+        }
+         let act = 0;
+        for (let i = 0; i < text.length; i++) {
+            if (text[i].charAt(0) === "#") {
+                 act = true;
+            }
+        }
+        this.setState({
                 dats: dats,
                 value: text,
-            })
-        }
+                isActive: act
+            }
+        )
     }
 
     deactivateEditMode = (key, text) => {
@@ -141,16 +145,18 @@ class Form extends Component {
             const dats = this.state.dats;
             if (text) {
                 dats.forEach(item => {
-                    if (item.key === key) {
-                        item.editMode = false;
-                        item.text = this.state.value;
+                        if (item.key === key) {
+                            item.editMode = false;
+                            item.text = this.state.value;
+                        }
                     }
-                })
+                )
                 this.setState({
-                    dats: dats,
-                    value: '',
-                    isActive: false
-                })
+                        dats: dats,
+                        value: '',
+                        isActive: false
+                    }
+                )
             }
         }
     }
