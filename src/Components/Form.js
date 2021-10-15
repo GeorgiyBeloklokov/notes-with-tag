@@ -60,16 +60,22 @@ class Form extends Component {
     }
 
     handleChange = (e) => {
-        let val = e.target.value.split(/(#[a-z\d-]+)/ig);
+        /*let val = e.target.value.split(/(#[a-z\d-]+)/ig);
         let array = [];
         for (let i = 0; i < val.length; i++) {
             if (val[i].charAt(0) === "#" && val[i] !== "") {
                 array.push({key: Math.random().toString(36).substr(2, 9),
                     text: val[i]});
             }
-        }
+        }*/
+        let val = e.target.value.split(/(#[a-z\d-]+)/ig);
+        let com = val.reduce((acc, text)=>{
+            return text.includes('#') ? [...acc, {text, key: Math.random()}] : acc}, []
 
-        if(array.length === 0){
+
+        )
+
+        if(com.length === 0){
 
             this.setState({
                 value: e.target.value,
@@ -88,7 +94,7 @@ class Form extends Component {
                         editMode: false,
                     },
 
-                    note:array
+                    note:com
 
                 }
             )
