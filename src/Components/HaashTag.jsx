@@ -9,9 +9,9 @@ const HashTag = (props) => {
             className += 'tags active';
         }
             return (
-                <div key={item.index}>
+                <div key={item.key}>
                     <div className='tags'>
-                        <div className={className}>{item}</div>
+                        <div className={className}>{item.text}</div>
                         <button onClick={() => props.delHashtag(item.index)} className='delTag'>Удалить тэг
                         </button>
                     </div>

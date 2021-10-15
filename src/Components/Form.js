@@ -60,29 +60,39 @@ class Form extends Component {
     }
 
     handleChange = (e) => {
-        let val = this.state.value.split(/(#[a-z\d-]+)/ig);
+        let val = e.target.value.split(/(#[a-z\d-]+)/ig);
         let array = [];
         for (let i = 0; i < val.length; i++) {
-            if (val[i].charAt(0) === "#") {
-
-                array.push(val[i]);
+            if (val[i].charAt(0) === "#" && val[i] !== "") {
+                array.push({key: Math.random().toString(36).substr(2, 9),
+                    text: val[i]});
             }
         }
 
-        this.setState({
+        if(array.length === 0){
+
+            this.setState({
                 value: e.target.value,
                 currentData: {
                     text: e.target.value,
                     key: Date.now(),
                     editMode: false,
-                },
-                currentTag: {
-                    text: e.target.value,
-                    key: Date.now(),
-                },
-                note:  array
-            }
-        )
+                }
+                })
+        } else {
+            this.setState({
+                    value: e.target.value,
+                    currentData: {
+                        text: e.target.value,
+                        key: Date.now(),
+                        editMode: false,
+                    },
+
+                    note:array
+
+                }
+            )
+        }
     }
 
     handleSubmit = (e) => {
@@ -126,10 +136,10 @@ class Form extends Component {
                 }
             )
         }
-         let act = 0;
+        let act = 0;
         for (let i = 0; i < text.length; i++) {
             if (text[i].charAt(0) === "#") {
-                 act = true;
+                act = true;
             }
         }
         this.setState({
