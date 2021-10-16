@@ -12,7 +12,7 @@ class Post extends Component {
               onChange={this.props.handleChange}
               placeholder="Для создания заметки и/или тега введите текст..."
           >
-            {" "}
+            {/*{" "}*/}
           </textarea>
                     <button className="save" onClick={this.props.handleSubmit}>
                         Сохранить

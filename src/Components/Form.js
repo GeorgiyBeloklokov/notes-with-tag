@@ -35,9 +35,10 @@ class Form extends Component {
     searchTag = (e) => {
         e.preventDefault();
         let dats = this.state.dats;
-        let indexOfStevie = dats.findIndex((i) => i.indexOf(this.state.tag) !== -1);
-        dats.unshift(dats[indexOfStevie]);
-        dats.splice(indexOfStevie + 1, 1);
+
+        let indexOfStevie = dats.findIndex(item => item.text === this.state.tag );
+         dats.unshift(dats[indexOfStevie]);
+          dats.splice(indexOfStevie + 1, 1);
         this.setState({
             dats: dats,
             tag: ""

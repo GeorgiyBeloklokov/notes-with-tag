@@ -22,6 +22,3 @@ const HashTag = (props) => {
     return <div>{listTag}</div>;
 };
 export default HashTag;
-
-/*
-<div className='someTag'>{item}</div>*/
