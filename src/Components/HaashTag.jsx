@@ -1,28 +1,26 @@
-import React  from "react";
+import React from "react";
 
 const HashTag = (props) => {
     const note = props.note;
 
-    const listTag = note.map(item => {
-        let className = 'tags';
+    const listTag = note.map((item) => {
+        let className = "tags";
         if (props.isActive) {
-            className += 'tags active';
+            className += "tags active";
         }
-            return (
-                <div key={item.key}>
-                    <div className='tags'>
-                        <div className={className}>{item.text}</div>
-                        <button onClick={() => props.delHashtag(item.index)} className='delTag'>Удалить тэг
-                        </button>
-                    </div>
+        return (
+            <div key={item}>
+                <div className="tags">
+                    <div className={className}>{item}</div>
+                    <button onClick={() => props.delHashtag(item)} className="delTag">
+                        Удалить тэг
+                    </button>
                 </div>
-            )
-        }
-    )
-    return (
-        <div>{listTag}</div>
-    )
-}
+            </div>
+        );
+    });
+    return <div>{listTag}</div>;
+};
 export default HashTag;
 
 /*

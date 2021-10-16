@@ -10,7 +10,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.Post .listBox .notes .changeNote, .Post .listBox .notes .delNote, .Post .tagButton, .Post .save {
+.Post .listBox .containerNote .delTag, .Post .listBox .notes .changeNote, .Post .listBox .notes .delNote, .Post .tagButton, .Post .save {
   background-color: #7386a0;
   border: none;
   color: #ffffff;
@@ -165,12 +165,26 @@ body {
   margin: 3px;
 }
 .Post .listBox .containerNote .tags .active {
-  background-color: #ff7b7b;
+  color: white;
+  border-radius: 12px;
+  background-color: #0004ff;
+  padding: 15px;
 }
 .Post .listBox .containerNote .delTag {
   margin-top: 20px;
   border-radius: 10px;
-  background-color: #1E90FF;
+  /*background-color: #ffffff;*/
+}
+.Post .listBox .containerNote .delTag:hover {
+  background-color: #005e7b;
+  color: #ffffff;
+}
+.Post .listBox .containerNote .delTag:active {
+  background-color: #004657;
+  box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  transform: translateY(4px);
 }
 @media only screen and (max-width: 700px) {
   .Post .container {

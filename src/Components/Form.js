@@ -1,146 +1,105 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import Post from "./Post";
 
 class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '',
-            tag: '',
+            value: "",
+            tag: "",
 
             dats: [],
             currentData: {
-                text: '',
-                key: '',
+                text: "",
+                key: "",
                 editMode: false
             },
             currentTag: {
-                text: '',
-                key: '',
-                servTag: ''
+                text: "",
+                key: "",
+                servTag: ""
             },
             note: [],
+            currentTags: [],
             json: null,
             isActive: false
         };
     }
 
-
     noteChange = (e) => {
         this.setState({
-                tag: e.target.value,
-
-            }
-        );
-    }
+            tag: e.target.value
+        });
+    };
 
     searchTag = (e) => {
         e.preventDefault();
         let dats = this.state.dats;
-        let indexOfStevie = dats.findIndex(i => i.indexOf(this.state.tag) !== -1);
+        let indexOfStevie = dats.findIndex((i) => i.indexOf(this.state.tag) !== -1);
         dats.unshift(dats[indexOfStevie]);
         dats.splice(indexOfStevie + 1, 1);
         this.setState({
-                dats: dats,
-                tag: '',
-            }
-        )
-    }
+            dats: dats,
+            tag: ""
+        });
+    };
 
-    delHashtag = (index) => {
-        let tag = this.state.note;
-        let val = this.state.value;
-        let del = tag.splice(index, 1);
-        let clearTag = val.substring(0, val.length - 1).replace(del, '');
+    delHashtag = (deltag) => {
         this.setState({
-                note: tag,
-                value: clearTag,
-            }
-        )
-    }
+            note: this.state.note.filter((tag) => tag !== deltag)
+        });
+    };
 
     handleChange = (e) => {
-        /*let val = e.target.value.split(/(#[a-z\d-]+)/ig);
-        let array = [];
-        for (let i = 0; i < val.length; i++) {
-            if (val[i].charAt(0) === "#" && val[i] !== "") {
-                array.push({key: Math.random().toString(36).substr(2, 9),
-                    text: val[i]});
-            }
-        }*/
-        let val = e.target.value.split(/(#[a-z\d-]+)/ig);
-        let com = val.reduce((acc, text)=>{
-            return text.includes('#') ? [...acc, {text, key: Math.random()}] : acc}, []
+        this.setState({
+            value: e.target.value,
+            currentData: {
+                text: e.target.value,
+                key: Date.now(),
+                editMode: false
+            },
+            currentTags: e.target.value.match(/(#[a-z\d-]+)/gi) || []
+        });
+    };
 
-
-        )
-
-        if(com.length === 0){
-
-            this.setState({
-                value: e.target.value,
-                currentData: {
-                    text: e.target.value,
-                    key: Date.now(),
-                    editMode: false,
-                }
-                })
-        } else {
-            this.setState({
-                    value: e.target.value,
-                    currentData: {
-                        text: e.target.value,
-                        key: Date.now(),
-                        editMode: false,
-                    },
-
-                    note:com
-
-                }
-            )
-        }
-    }
+    tagCloud = (savedTags, currentTags) => {
+        return [...new Set([...savedTags, ...currentTags])];
+    };
 
     handleSubmit = (e) => {
         e.preventDefault();
-        if (this.state.value !== '') {
+        if (this.state.value !== "") {
             let myJson = {
                 dats: this.state.dats,
                 note: this.state.note
             };
             const newDats = [...this.state.dats, this.state.currentData];
-            const newTags = [...this.state.note, this.state.currentTag];
             this.setState({
-                    json: JSON.stringify(myJson),
-                    dats: newDats,
-                    /*note: newTags,*/
-                    value: '',
-                }
-            )
-            console.log(myJson);
+                json: JSON.stringify(myJson),
+                dats: newDats,
+                note: this.tagCloud(this.state.note, this.state.currentTags),
+                currentTags: [],
+                value: ""
+            });
         }
-    }
+    };
 
     delPost = (key) => {
-        const filterTask = this.state.dats.filter(item =>
-            item.key !== key);
+        const filterTask = this.state.dats.filter((item) => item.key !== key);
         this.setState({
-                dats: filterTask
-            }
-        )
-    }
-
+            dats: filterTask
+        });
+    };
 
     activateEditMode = (text, key) => {
         const dats = this.state.dats;
         if (text) {
-            dats.forEach(item => {
-                    if (item.key === key) {
-                        item.text = text;
-                        item.editMode = !item.editMode;
-                    }
+            dats.forEach((item) => {
+                if (item.key === key) {
+                    item.text = text;
+                    item.editMode = !item.editMode;
                 }
-            )
+            });
         }
         let act = 0;
         for (let i = 0; i < text.length; i++) {
@@ -149,34 +108,30 @@ class Form extends Component {
             }
         }
         this.setState({
-                dats: dats,
-                value: text,
-                isActive: act
-            }
-        )
-    }
+            dats: dats,
+            value: text,
+            isActive: act
+        });
+    };
 
     deactivateEditMode = (key, text) => {
         if (this.state.value) {
             const dats = this.state.dats;
             if (text) {
-                dats.forEach(item => {
-                        if (item.key === key) {
-                            item.editMode = false;
-                            item.text = this.state.value;
-                        }
+                dats.forEach((item) => {
+                    if (item.key === key) {
+                        item.editMode = false;
+                        item.text = this.state.value;
                     }
-                )
+                });
                 this.setState({
-                        dats: dats,
-                        value: '',
-                        isActive: false
-                    }
-                )
+                    dats: dats,
+                    value: "",
+                    isActive: false
+                });
             }
         }
-    }
-
+    };
 
     render() {
         return (
@@ -184,7 +139,7 @@ class Form extends Component {
                 <Post
                     isActive={this.state.isActive}
                     value={this.state.value}
-                    note={this.state.note}
+                    note={this.tagCloud(this.state.note, this.state.currentTags)}
                     tag={this.state.tag}
                     dats={this.state.dats}
                     handleChange={this.handleChange}
