@@ -10,9 +10,9 @@ class Post extends Component {
           <textarea
               value={this.props.value}
               onChange={this.props.handleChange}
-              placeholder="Для создания заметки и/или тега введите текст..."
+              onKeyDown={this.props.handleKeyPress}
+              placeholder="Введите текст/тег и нажмите Enter или Сохранить..."
           >
-            {/*{" "}*/}
           </textarea>
                     <button className="save" onClick={this.props.handleSubmit}>
                         Сохранить

@@ -19,7 +19,7 @@ const Task = (props) => {
                 </div>}
 
                 {item.editMode &&
-                <div className="someText">
+                <div className="someText editMode">
                     <input id={item.key} value={props.value} onChange={props.handleChange}
                            onBlur={() => props.deactivateEditMode(item.key, item.text)}
                            autoFocus={true}

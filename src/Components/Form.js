@@ -7,22 +7,16 @@ class Form extends Component {
         this.state = {
             value: "",
             tag: "",
-
             dats: [],
+            note: [],
+            currentTags: [],
+            json: null,
+            isActive: false,
             currentData: {
                 text: "",
                 key: "",
                 editMode: false
-            },
-            currentTag: {
-                text: "",
-                key: "",
-                servTag: ""
-            },
-            note: [],
-            currentTags: [],
-            json: null,
-            isActive: false
+            }
         };
     }
 
@@ -35,8 +29,7 @@ class Form extends Component {
     searchTag = (e) => {
         e.preventDefault();
         let dats = this.state.dats;
-
-        let indexOfStevie = dats.findIndex(item => item.text === this.state.tag );
+        let indexOfStevie = dats.findIndex(item => item.text.includes (this.state.tag) );
          dats.unshift(dats[indexOfStevie]);
           dats.splice(indexOfStevie + 1, 1);
         this.setState({
@@ -45,9 +38,9 @@ class Form extends Component {
         });
     };
 
-    delHashtag = (deltag) => {
+    delHashtag = (delTag) => {
         this.setState({
-            note: this.state.note.filter((tag) => tag !== deltag)
+            note: this.state.note.filter((tag) => tag !== delTag)
         });
     };
 
@@ -134,6 +127,12 @@ class Form extends Component {
         }
     };
 
+    handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+            this.handleSubmit(e)
+        }
+    };
+
     render() {
         return (
             <div>
@@ -143,6 +142,7 @@ class Form extends Component {
                     note={this.tagCloud(this.state.note, this.state.currentTags)}
                     tag={this.state.tag}
                     dats={this.state.dats}
+                    handleKeyPress={this.handleKeyPress}
                     handleChange={this.handleChange}
                     delHashtag={this.delHashtag}
                     delPost={this.delPost}

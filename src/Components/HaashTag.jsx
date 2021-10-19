@@ -4,13 +4,13 @@ const HashTag = (props) => {
     const note = props.note;
 
     const listTag = note.map((item) => {
-        let className = "tags";
+        let className = " ";
         if (props.isActive) {
-            className += "tags active";
+            className = "active";
         }
         return (
-            <div key={item}>
-                <div className="tags">
+            <div  key={item}>
+                <div className={"tags"}>
                     <div className={className}>{item}</div>
                     <button onClick={() => props.delHashtag(item)} className="delTag">
                         Удалить тэг
@@ -19,6 +19,6 @@ const HashTag = (props) => {
             </div>
         );
     });
-    return <div>{listTag}</div>;
+    return <div>{listTag}</div>
 };
 export default HashTag;

@@ -1,3 +1,15 @@
+.Post .listBox .containerNote .delTag:hover, .Post .listBox .notes .changeNote:hover, .Post .listBox .notes .delNote:hover, .Post .tagButton:hover, .Post .save:hover {
+  background-color: #005e7b;
+  color: #ffffff;
+}
+.Post .listBox .containerNote .delTag:active, .Post .listBox .notes .changeNote:active, .Post .listBox .notes .delNote:active, .Post .tagButton:active, .Post .save:active {
+  background-color: #004657;
+  box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  transform: translateY(2px);
+}
+
 .Post input, .Post textarea {
   padding: 10px;
   margin: 20px;
@@ -7,7 +19,7 @@
 .Post .searchTag, .Post .someText {
   margin: 20px;
   background-color: #93abcb;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
 .Post .listBox .containerNote .delTag, .Post .listBox .notes .changeNote, .Post .listBox .notes .delNote, .Post .tagButton, .Post .save {
@@ -59,6 +71,7 @@ body {
 }
 
 .Post .someText {
+  border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -70,18 +83,8 @@ body {
   height: 50px;
   flex-basis: 10%;
 }
-.Post .save:hover {
-  background-color: #005e7b;
-  color: #ffffff;
-}
-.Post .save:active {
-  background-color: #004657;
-  box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  transform: translateY(4px);
-}
 .Post .searchTag {
+  border-radius: 5px;
   flex-basis: 70%;
   display: inline-block;
   flex-direction: row;
@@ -93,20 +96,8 @@ body {
   max-height: 30px;
   margin: 1rem 20px 0 0;
 }
-.Post .tagButton:hover {
-  background-color: #005e7b;
-  color: #ffffff;
-}
-.Post .tagButton:active {
-  background-color: #004657;
-  box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  transform: translateY(4px);
-}
 .Post .listBox {
   display: flex;
-  /*flex-direction: column;*/
   justify-content: center;
   align-items: center;
   list-style-position: inside;
@@ -125,34 +116,12 @@ body {
   word-wrap: break-word;
 }
 .Post .listBox .notes .delNote {
-  margin: 5px 10px 0px 10px;
+  margin: 5px 10px  10px;
   border-radius: 10px;
-}
-.Post .listBox .notes .delNote:hover {
-  background-color: #005e7b;
-  color: #ffffff;
-}
-.Post .listBox .notes .delNote:active {
-  background-color: #004657;
-  box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  transform: translateY(4px);
 }
 .Post .listBox .notes .changeNote {
-  margin: 5px 10px 0px 10px;
+  margin: 5px 10px 10px;
   border-radius: 10px;
-}
-.Post .listBox .notes .changeNote:hover {
-  background-color: #005e7b;
-  color: #ffffff;
-}
-.Post .listBox .notes .changeNote:active {
-  background-color: #004657;
-  box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  transform: translateY(4px);
 }
 .Post .listBox .containerNote {
   display: inline-flex;
@@ -162,29 +131,20 @@ body {
 }
 .Post .listBox .containerNote .tags {
   padding: 10px;
-  margin: 3px;
+  margin: 5px;
+  width: 145px;
+  word-wrap: break-word;
 }
 .Post .listBox .containerNote .tags .active {
+  padding: 10px;
   color: white;
-  border-radius: 12px;
   background-color: #0004ff;
-  padding: 15px;
+  border-radius: 10px;
+  word-wrap: break-word;
 }
 .Post .listBox .containerNote .delTag {
   margin-top: 20px;
   border-radius: 10px;
-  /*background-color: #ffffff;*/
-}
-.Post .listBox .containerNote .delTag:hover {
-  background-color: #005e7b;
-  color: #ffffff;
-}
-.Post .listBox .containerNote .delTag:active {
-  background-color: #004657;
-  box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  transform: translateY(4px);
 }
 @media only screen and (max-width: 700px) {
   .Post .container {
