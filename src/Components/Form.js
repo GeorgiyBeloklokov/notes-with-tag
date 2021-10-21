@@ -29,7 +29,7 @@ class Form extends Component {
     searchTag = (e) => {
         e.preventDefault();
         let dats = this.state.dats;
-        let indexOfStevie = dats.findIndex(item => item.text.includes (this.state.tag) );
+        let indexOfStevie = dats.findIndex(item => item.text.toLowerCase().includes (this.state.tag) );
          dats.unshift(dats[indexOfStevie]);
           dats.splice(indexOfStevie + 1, 1);
         this.setState({
@@ -95,6 +95,7 @@ class Form extends Component {
                 }
             });
         }
+
         let act = 0;
         for (let i = 0; i < text.length; i++) {
             if (text[i].charAt(0) === "#") {

@@ -8,12 +8,14 @@ class Post extends Component {
             <div className="Post">
                 <form className="someText">
           <textarea
+
               value={this.props.value}
               onChange={this.props.handleChange}
               onKeyDown={this.props.handleKeyPress}
               placeholder="Введите текст/тег и нажмите Enter или Сохранить..."
           >
           </textarea>
+
                     <button className="save" onClick={this.props.handleSubmit}>
                         Сохранить
                     </button>

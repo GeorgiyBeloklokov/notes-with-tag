@@ -1,11 +1,11 @@
-$background-head-inputs: #93abcb;
-$background-items: #93abcb;
-$background-body: #85a3c6;
+$background-head-inputs: transparent;
+$background-items: linear-gradient(90deg, rgba(115, 120, 202, 1) 50%, rgba(182, 134, 203, 1) 100%);
+$background-body: linear-gradient(90deg, rgba(115, 120, 202, 1) 50%, rgba(182, 134, 203, 1) 100%);
 $twenty: 20px;
 $shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 $marginLi: 5px 10px 0px 10px;
-$background-color-hover: #005e7b;
-$background-color-active: #004657;
+$background-color-hover: rgba(255, 17, 180, 0.1);
+$background-color-active: rgba(255, 88, 119, 0.1);
 
 %hover-active-props {
   &:hover {
@@ -15,10 +15,10 @@ $background-color-active: #004657;
 
   &:active {
     background-color: $background-color-active;
-    box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-    -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-    transform: translateY(2px);
+    box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.3);
+    transform: translateY(1px);
   }
 }
 
@@ -30,12 +30,12 @@ $background-color-active: #004657;
 
 %form-props {
   margin: $twenty;
-  background-color: $background-head-inputs;
+  background: $background-head-inputs;
   box-shadow: $shadow;
 }
 
 %button-props {
-  background-color: #7386a0;
+  background: rgba(0, 0, 0, 0.1);
   border: none;
   color: #ffffff;
   padding: 12px 6px;
@@ -50,9 +50,9 @@ $background-color-active: #004657;
 }
 
 %li-props {
-  /*border: 1px solid silver;*/
   border-radius: 5px;
-  background-color: $background-items;
+  background: transparent;
+  box-shadow: $shadow;
 }
 
 %list-props {
@@ -65,14 +65,14 @@ $background-color-active: #004657;
 
 
 body {
-  background-color: $background-body;
+  background: $background-body;
   font-family: sans-serif, serif;
 }
 
 .container {
   justify-content: center;
   margin: 0 auto;
-  background-color: white;
+  background: transparent;
   max-width: 1000px;
   min-height: 900px;
 }
@@ -173,7 +173,6 @@ body {
       list-style-type: none;
       flex-wrap: wrap;
 
-
       .tags {
         @extend %li-props;
         padding: 10px;
@@ -189,8 +188,6 @@ body {
           word-wrap: break-word;
         }
       }
-
-
       .delTag {
         @extend %button-props;
         margin-top: 20px;
@@ -199,7 +196,6 @@ body {
       }
     }
   }
-
   @media only screen and (max-width: 700px) {
     .container {
       background-color: rgb(163, 221, 240);

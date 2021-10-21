@@ -1,13 +1,13 @@
 .Post .listBox .containerNote .delTag:hover, .Post .listBox .notes .changeNote:hover, .Post .listBox .notes .delNote:hover, .Post .tagButton:hover, .Post .save:hover {
-  background-color: #005e7b;
+  background-color: rgba(255, 17, 180, 0.1);
   color: #ffffff;
 }
 .Post .listBox .containerNote .delTag:active, .Post .listBox .notes .changeNote:active, .Post .listBox .notes .delNote:active, .Post .tagButton:active, .Post .save:active {
-  background-color: #004657;
-  box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.6);
-  transform: translateY(2px);
+  background-color: rgba(255, 88, 119, 0.1);
+  box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 1px 2px 8px 3px rgba(0, 0, 0, 0.3);
+  transform: translateY(1px);
 }
 
 .Post input, .Post textarea {
@@ -18,12 +18,12 @@
 
 .Post .searchTag, .Post .someText {
   margin: 20px;
-  background-color: #93abcb;
+  background: transparent;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
 .Post .listBox .containerNote .delTag, .Post .listBox .notes .changeNote, .Post .listBox .notes .delNote, .Post .tagButton, .Post .save {
-  background-color: #7386a0;
+  background: rgba(0, 0, 0, 0.1);
   border: none;
   color: #ffffff;
   padding: 12px 6px;
@@ -39,9 +39,9 @@
 }
 
 .Post .listBox .containerNote .tags, .Post .listBox .notes {
-  /*border: 1px solid silver;*/
   border-radius: 5px;
-  background-color: #93abcb;
+  background: transparent;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
 .Post .listBox .containerNote, .Post .listBox {
@@ -53,14 +53,14 @@
 }
 
 body {
-  background-color: #85a3c6;
+  background: linear-gradient(90deg, #7378ca 50%, #b686cb 100%);
   font-family: sans-serif, serif;
 }
 
 .container {
   justify-content: center;
   margin: 0 auto;
-  background-color: white;
+  background: transparent;
   max-width: 1000px;
   min-height: 900px;
 }
@@ -116,11 +116,11 @@ body {
   word-wrap: break-word;
 }
 .Post .listBox .notes .delNote {
-  margin: 5px 10px  10px;
+  margin: 5px 10px 0px 10px;
   border-radius: 10px;
 }
 .Post .listBox .notes .changeNote {
-  margin: 5px 10px 10px;
+  margin: 5px 10px 0px 10px;
   border-radius: 10px;
 }
 .Post .listBox .containerNote {

@@ -17,7 +17,6 @@ const Task = (props) => {
                         <button onClick={() => props.delPost(item.key)} className='delNote'>X</button>
                     </div>
                 </div>}
-
                 {item.editMode &&
                 <div className="someText editMode">
                     <input id={item.key} value={props.value} onChange={props.handleChange}
